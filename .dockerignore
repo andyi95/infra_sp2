@@ -1,0 +1,4 @@
+api/migrations/
+.git/*
+env/
+venv/

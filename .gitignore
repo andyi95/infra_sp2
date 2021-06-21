@@ -149,3 +149,7 @@ dmypy.json
 static/
 posts/static/
 
+misc/
+sent_emails/
+requirements.in
+
