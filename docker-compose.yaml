@@ -1,9 +1,11 @@
-# версия docker-compose
 version: '3.7'
 
 services:
   db:
     image: postgres:12.4
+    restart: always
+    ports:
+    - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
@@ -31,7 +33,6 @@ services:
     - media_value:/var/html/media/
     depends_on:
       - web
-
 volumes:
   postgres_data:
   static_value:
