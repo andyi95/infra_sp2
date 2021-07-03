@@ -151,3 +151,4 @@ posts/static/
 misc/
 sent_emails/
 requirements.in
+.env
