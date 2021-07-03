@@ -28,15 +28,14 @@ services:
       - ./.env
   nginx:
     image: nginx:1.19.9
+    restart: always
     ports:
-    - "80:80"
+    - 80:80
     volumes:
-#    - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    - "./nginx/templates:/etc/nginx/templates"
+    - ./nginx/templates:/etc/nginx/templates
     - static_value:/var/html/static/
     - media_value:/var/html/media/
     env_file:
       - ./.env
-    command: /bin/bash -c "envsubst < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf"
     depends_on:
       - web
