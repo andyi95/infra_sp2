@@ -8,11 +8,11 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = False
+DEBUG = os.getenv('DEBUG_MODE')
 
 # Поскольку общение Django ограничивается лишь контейром web, то оставим его
 # и на всякий пожарный localhost :)
-ALLOWED_HOSTS = ['web', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['web', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

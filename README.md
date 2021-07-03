@@ -60,7 +60,7 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
 
 Поле `POSTGRES_DB` содержит название базы данных, поля `POSTGRES_USER`, `POSTGRES_PASSWORD` - имя пользователя и пароль соответственно. По умолчанию в поле `DB_HOST` и `DB_PORT` используется база данных контейнера `db` с портом 5432, но так же можно использовать и PostgreSQL сервер хост-машины. Подробнее о настройке доступа к сервисам хоста из контейнеров описано в [документации Docker](https://docs.docker.com/compose/networking/).
 
-Поле `HOSTS_LIST` определяет набор сетевых интерфейсов, с 
+Поле `HOSTS_LIST` определяет набор сетевых 
 
 ## Авторы
 
