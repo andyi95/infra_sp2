@@ -13,13 +13,16 @@
 #### 2. Установка и запуск контейнеров
 
 Внимание! Убедитесь, что на хост-машине не запущены серверы PostGreSQL и/или веб-сервисы, в ином случае перед развёртыванием ознакомьтесь с документацией Docker по сопоставлению портов (port mapping).
-В файле .env содержатся основные параметры развёртывания - в целях безопасности рекомендуется заменить поля с секретным ключом Django, именем пользователя и паролем PostgreSQL (SECRET_KEY, POSTGRES_USER и POSTGRES_PASSWORD) на свои. Более подробно с рекомендациями по развертыванию Django можно ознакомиться по [ссылке](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/).
-```bash
+Для запуска образа необходимо скопировать и заполнить отсутствующие поля своими значениями. Подробнее о конфигурации читайте в соответствующем [разделе](###конфигурация-.env-файла).
+В файле `.env` содержатся основные параметры развёртывания - в целях безопасности рекомендуется заменить поля с секретным ключом Django, именем пользователя и паролем PostgreSQL (SECRET_KEY, POSTGRES_USER и POSTGRES_PASSWORD) на свои. Более подробно с рекомендациями по развертыванию Django можно ознакомиться по [ссылке](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/).
+```shell
 git clone https://github.com/andyi95/infra_sp2
 docker-compose up -d --build
-docker-compose exec web python manage.py makemigrations api
-docker-compose exec web python manage.py migrate
-docker-compose exec web python manage.py collectstatic --no-input  
+docker-compose exec web bash
+
+python manage.py migrate
+python manage.py collectstatic --no-input
+exit
 ```
 
 #### 3. Использование и администрирование
@@ -30,25 +33,38 @@ docker-compose exec web python manage.py collectstatic --no-input
 
 ##### Создание суперпользователя:
 
-```bash
-docker-compose exec -it web python manage.py createsuperuser
+```shell
+docker-compose exec web python manage.py createsuperuser
 ```
 ##### Заполнение БД тестовым набором данных
 
-```bash
+```shell
 docker exec web python manage.py loaddata fixtures.json
 ```
 
 ##### Остановка и удаление контейнеров
 
-```bash
+```shell
 docker-compose down
 docker system prune
 ```
 
+### Конфигурация .env файла
+ 
+ Скопируйте скопируйте или переименуйте `.env.sample` в `.env`.
+ Поле `SECRET_KEY` используется для поддержки cookie-сессий и crsf-токенов. Для генерации нового значения можно использовать команду (из контейнера `web`, либо иного окружения с установленным python и Django)
+ ```shell
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+``` 
+Полученное значение скопируйте в соответствующее поле.
+
+Поле `POSTGRES_DB` содержит название базы данных, поля `POSTGRES_USER`, `POSTGRES_PASSWORD` - имя пользователя и пароль соответственно. По умолчанию в поле `DB_HOST` и `DB_PORT` используется база данных контейнера `db` с портом 5432, но так же можно использовать и PostgreSQL сервер хост-машины. Подробнее о настройке доступа к сервисам хоста из контейнеров описано в [документации Docker](https://docs.docker.com/compose/networking/).
+
+Поле `HOSTS_LIST` определяет набор сетевых интерфейсов, с 
 
 ## Авторы
 
 Также над проектом работали: 
+ - [andyi95](https://github.com/andyi95)
  - [Dkobachevski](https://github.com/dmarichuk)
  - [dmarichuk](https://github.com/dmarichuk)
