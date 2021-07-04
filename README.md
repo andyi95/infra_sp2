@@ -1,8 +1,8 @@
 # Yamdb API
 ## Описание
 
-**YAMDB** собирает отзывы пользователей на произведения, делящиеся на произовльные категории и жанры, которые можно добавлять самостоятельно.
-Проект собран из репозитория [andyi95/api_yamdb](https://github.com/andyi95/api_yamdb) с добавлением поддержки Docker и Docker Compose. При создании использовался следущующий стек технологий: Python3, Django Rest Framework, PostgreSQL, Gunicorn, Docker
+**YAMDB** собирает отзывы пользователей на произведения, делящиеся на произвольные  категории и жанры, которые можно добавлять самостоятельно.
+Проект собран из репозитория [andyi95/api_yamdb](https://github.com/andyi95/api_yamdb) с добавлением поддержки Docker и Docker Compose. При создании использовался следующий стек технологий: Python3, Django Rest Framework, PostgreSQL, Gunicorn, Docker
 
 ## Сборка и запуск проекта
 
@@ -13,9 +13,10 @@
 #### 2. Установка и запуск контейнеров
 
 Внимание! Убедитесь, что на хост-машине не запущены серверы PostGreSQL и/или веб-сервисы, в ином случае перед развёртыванием ознакомьтесь с документацией Docker по сопоставлению портов (port mapping).
-Для запуска образа необходимо скопировать и заполнить отсутствующие поля своими значениями. Подробнее о конфигурации читайте в соответствующем [разделе](###конфигурация-.env-файла).
 
 В файле `.env` содержатся основные параметры развёртывания - в целях безопасности рекомендуется заменить поля с секретным ключом Django, именем пользователя и паролем PostgreSQL (SECRET_KEY, POSTGRES_USER и POSTGRES_PASSWORD) на свои. Более подробно с рекомендациями по развертыванию Django можно ознакомиться по [ссылке](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/).
+
+Для запуска образа необходимо скопировать и заполнить отсутствующие поля своими значениями. Подробнее о конфигурации читайте в соответствующем [разделе](###конфигурация-.env-файла).
 
 После копирования и заполнения env-файла начальными значениями, выполните сборку и запуск контейнеров:
 ```shell
@@ -30,7 +31,7 @@ exit
 
 #### 3. Использование и администрирование
 
-После установки и запуска контейнеров вы можете ознакомиться с документацией по следующему URL: http://localhost/redoc/ (localhost замените на адрес удаленного сервера, на котором происходила установка).
+После установки и запуска контейнеров вы можете ознакомиться с документацией по использованию Yamdb API по следующему URL: http://localhost/redoc/ (localhost замените на адрес удаленного сервера, на котором происходила установка).
 
 Панель администрирования доступна по адресу http://localhost/admin/
 
@@ -71,3 +72,14 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
  - [andyi95](https://github.com/andyi95)
  - [Dkobachevski](https://github.com/dmarichuk)
  - [dmarichuk](https://github.com/dmarichuk)
+ 
+ ## Инструменты и фреймворки в проекте
+ 
+ - [Python 3.x](https://www.python.org/) | [docs](https://docs.python.org/3/) | [GitHub](https://github.com/python/cpython/tree/3.8)
+ - Django 2.2 [docs](https://docs.djangoproject.com/en/2.2/) | [GitHub репозиторий](https://github.com/django/django/tree/stable/2.2.x)
+ - [Gunicorn](https://gunicorn.org/) | [Github репозиторий](https://github.com/benoitc/gunicorn)
+ - [PostgreSQL 12](https://www.postgresql.org/) | [docs](https://www.postgresql.org/docs/12/index.html) | [GitHub](https://github.com/postgres/postgres/tree/REL_12_STABLE)
+ - [Nginx HTTP Server](https://nginx.org/ru/) | [docs](https://nginx.org/ru/docs/) | [GitHub](https://github.com/nginx/nginx/tree/branches/stable-1.12)
+ - [Docker](https://docs.docker.com/) | [Github репозиторий](https://github.com/docker)
+ - [Docker Compose](https://docs.docker.com/compose/) | [Github репозиторий](https://github.com/docker/compose)
+ 

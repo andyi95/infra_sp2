@@ -1,17 +1,17 @@
 version: '3.7'
 
 volumes:
-  postgres_data:
+  mysql_data:
   static_value:
   media_value:
 services:
   db:
-    image: postgres:12.4-alpine
+    image: mysql:5.7
     restart: always
     ports:
-    - 5432:5432
+    - 3306:3306
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+    - mysql_data:/var/lib/mysql
     env_file:
       - ./.env
   web:
@@ -26,7 +26,6 @@ services:
       - db
     env_file:
       - ./.env
-  # Серьёзный выигрыш дискового пространства
   nginx:
     image: nginx:1.19.9-alpine
     restart: always
