@@ -55,7 +55,7 @@ docker system prune
 
 ### Конфигурация .env файла
  
- Скопируйте скопируйте или переименуйте `.env.sample` в `.env`.
+ Скопируйте или переименуйте `.env.sample` в `.env`.
  Поле `SECRET_KEY` используется для поддержки cookie-сессий и crsf-токенов. Для генерации нового значения можно использовать команду (из контейнера `web`, либо иного окружения с установленным python и Django):
  ```shell
 python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
@@ -76,10 +76,10 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
  ## Инструменты и фреймворки в проекте
  
  - [Python 3.x](https://www.python.org/) | [docs](https://docs.python.org/3/) | [GitHub](https://github.com/python/cpython/tree/3.8)
- - Django 2.2 [docs](https://docs.djangoproject.com/en/2.2/) | [GitHub репозиторий](https://github.com/django/django/tree/stable/2.2.x)
- - [Gunicorn](https://gunicorn.org/) | [Github репозиторий](https://github.com/benoitc/gunicorn)
+ - Django 2.2 [docs](https://docs.djangoproject.com/en/2.2/) | [GitHub](https://github.com/django/django/tree/stable/2.2.x)
+ - [Gunicorn](https://gunicorn.org/) | [Github](https://github.com/benoitc/gunicorn)
  - [PostgreSQL 12](https://www.postgresql.org/) | [docs](https://www.postgresql.org/docs/12/index.html) | [GitHub](https://github.com/postgres/postgres/tree/REL_12_STABLE)
  - [Nginx HTTP Server](https://nginx.org/ru/) | [docs](https://nginx.org/ru/docs/) | [GitHub](https://github.com/nginx/nginx/tree/branches/stable-1.12)
- - [Docker](https://docs.docker.com/) | [Github репозиторий](https://github.com/docker)
- - [Docker Compose](https://docs.docker.com/compose/) | [Github репозиторий](https://github.com/docker/compose)
+ - [Docker](https://docs.docker.com/) | [Github](https://github.com/docker)
+ - [Docker Compose](https://docs.docker.com/compose/) | [Github](https://github.com/docker/compose)
  
