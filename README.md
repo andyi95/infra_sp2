@@ -76,7 +76,7 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
  ## Инструменты и фреймворки в проекте
  
  - [Python 3.x](https://www.python.org/) | [docs](https://docs.python.org/3/) | [GitHub](https://github.com/python/cpython/tree/3.8)
- - Django 2.2 [docs](https://docs.djangoproject.com/en/2.2/) | [GitHub](https://github.com/django/django/tree/stable/2.2.x)
+ - [Django 3.1.x](https://www.djangoproject.com/) [docs](https://docs.djangoproject.com/en/3.1/) | [GitHub](https://github.com/django/django/tree/stable/3.1.x)
  - [Gunicorn](https://gunicorn.org/) | [Github](https://github.com/benoitc/gunicorn)
  - [PostgreSQL 12](https://www.postgresql.org/) | [docs](https://www.postgresql.org/docs/12/index.html) | [GitHub](https://github.com/postgres/postgres/tree/REL_12_STABLE)
  - [Nginx HTTP Server](https://nginx.org/ru/) | [docs](https://nginx.org/ru/docs/) | [GitHub](https://github.com/nginx/nginx/tree/branches/stable-1.12)
